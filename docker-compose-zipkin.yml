@@ -17,7 +17,7 @@ services:
             - ZIPKIN=http://zipkin:9411/api/v1/spans
             - reschedule=on-node-failure
         ports:
-            - "8080:80"
+            - "9090:80"
     catalogue-db:
         build:
             context: ./docker/catalogue-db/

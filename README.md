@@ -39,7 +39,7 @@ The result is a binary named `catalogue`, in the current directory.
 #### Docker
 `docker-compose build`
 
-### To run the service on port 8080
+### To run the service on port 9090
 
 #### Go native
 
@@ -56,10 +56,10 @@ To run it use:
 `make test`
 
 ### Check whether the service is alive
-`curl http://localhost:8080/health`
+`curl http://localhost:9090/health`
 
 ### Use the service endpoints
-`curl http://localhost:8080/catalogue`
+`curl http://localhost:9090/catalogue`
 
 ### Push the service to Docker Container Registry
 `GROUP=weaveworksdemos COMMIT=test ./scripts/push.sh`

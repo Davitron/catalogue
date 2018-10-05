@@ -5,7 +5,7 @@ services:
         build:
             context: .
             dockerfile: ./docker/catalogue/Dockerfile
-        image: weaveworksdemos/catalogue
+        image: catalogue
         hostname: catalogue
         restart: always
         cap_drop:
@@ -16,15 +16,15 @@ services:
         environment:
             - reschedule=on-node-failure
         ports:
-            - "8080:80"
+            - "9090:80"
     catalogue-db:
         build:
             context: ./docker/catalogue-db/
-        image: weaveworksdemos/catalogue-db
+        image: catalogue-db
         hostname: catalogue-db
         restart: always
         environment:
             - reschedule=on-node-failure
-            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=nanavela
             - MYSQL_ALLOW_EMPTY_PASSWORD=true
             - MYSQL_DATABASE=socksdb

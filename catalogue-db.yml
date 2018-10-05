@@ -1,0 +1,32 @@
+# Deploy the pods
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: catalogue-db-deployment
+spec:
+  selector:
+    matchLabels:
+      app: catalogue-db
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: catalogue-db
+    spec:
+      containers:
+      - name: catalogue-db
+        image: 726336258647.dkr.ecr.us-east-2.amazonaws.com/characters:21
+        ports:
+        - containerPort: 9091
+---
+# This service is used to expose the pods on a port
+apiVersion: v1
+kind: Service
+metadata:
+  name: catalogue-db-service
+spec:
+  selector:
+    app: catalogue-db
+  ports:
+    - port: 9091
+      protocol: TCP
