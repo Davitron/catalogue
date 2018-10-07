@@ -14,7 +14,7 @@ spec:
         app: catalogue
     spec:
       containers:
-      - name: locations
+      - name: catalogue
         image: 770817924447.dkr.ecr.us-east-2.amazonaws.com/catalogue:v1
         ports:
         - containerPort: 9090
@@ -30,4 +30,3 @@ spec:
   ports:
     - port: 9090
       protocol: TCP
-  type: LoadBalancer
